@@ -13,21 +13,28 @@ set signcolumn=yes
 
 :let mapleader = ','
 
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-inoremap (      ()<Left>
-inoremap [      []<Left>
-inoremap '      ''<Left>
-inoremap "      ""<Left>
+set guicursor=i:block
+
+" inoremap {      {}<Left>
+" inoremap {<CR>  {<CR>}<Esc>O
+" inoremap {{     {
+" inoremap {}     {}
+" inoremap (      ()<Left>
+" inoremap [      []<Left>
+" inoremap '      ''<Left>
+" inoremap "      ""<Left>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"))
 
 call plug#begin('~/.nvim/plugged')
 
+" themes
 Plug 'morhetz/gruvbox'
+Plug 'catppuccin/nvim'
+Plug 'folke/tokyonight.nvim', {'branch': 'main'}
+" end themes
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -38,6 +45,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --producti
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chrisbra/vim-commentary'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -47,6 +55,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme catppuccin
 
-highlight Normal guibg=none
+" highlight Normal guibg=none
+
